@@ -1,0 +1,29 @@
+<h1>Edit a post</h1>
+
+<%= form_for :post, url: post_path(@post), method: :patch do |p| %>
+  <% if @post.errors.any? %>
+    <div>
+      <ul>
+        <% @post.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= p.label :title %> <br>
+    <%= p.text_field :title %>
+  </p>
+
+  <p>
+    <%= p.label :body %><br>
+    <%= p.text_area :body %>
+  </p>
+
+  <p>
+    <%= p.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Home', posts_path %>
